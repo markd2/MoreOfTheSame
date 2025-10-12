@@ -14,7 +14,18 @@ To see the latest (extracted) code, [check it out](yahtzee.bas)
 
 Program development on an actual Apple 2 with a BMOW [Floopy Emu](https://shop.bigmessowires.com/products/floppy-emu-model-c) instead of physical disks.
 
-Program playback animations via [Virtual //](https://www.virtualii.com)
+Program playback screenshots and animations via [Virtual //](https://www.virtualii.com)
+
+## Notes
+
+I'm trying to keep To The Era, using tools that were available back then. So no lappy for taking notes in markdown and using pandoc to blah blah blah.  The computer had the BASIC program, and if you had any additional stuff to keep track of, you used pen, pencil, and paper.
+
+So here's design notes (I **am** a fountain pen nerd).  I may transcribe some of them for easier consumption.  
+
+| page 1 | page 2 |
+| ----- | ----- |
+| ![](assets/y1-pg1.jpg) | ![](assets/y1-pg2.jpg) |
+
 
 
 ## It works!
