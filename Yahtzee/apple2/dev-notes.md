@@ -62,10 +62,10 @@ There's also no tooling to tell what variables are in use, what they mean, and h
 they're intended to be used.  So we have to do this ourselves.  I'm keeping it on paper,
 looking like this:
 
-![](assets/data-dictionary.png)
+![](assets/data-dictionary.jpg)
 
 Don't forget (like I did with `SCHANCE` (Score Chance) colliding with `SCCOUNT` (constant
-for count of scores)
+for count of scores))
 
 Note there is some confusion of zero and one indexing.  Applesoft arrays are zero indexed,
 but `DIM(X)` is inclusive to the given index.  So `DIM(13)` gives a 14 element array, 
