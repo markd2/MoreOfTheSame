@@ -14,8 +14,8 @@ interesting stuff is out here in supplemental-documentation land.
 
 Writing up a short bit of snibbage for the different versions.
 
-* ![Y1](impressions/y1.md) - bootstrap, organization, data initialization, debug output.  1344 bytes of BASIC
-* ![Y2](impressions/y2.md) - scoring of dice, basic loop to roll randomly and see the scores to sanity-check the work.  2892 bytes of BASIC.  so 1,548 new bytes in this revision.
+* [Y1](impressions/y1.md) - bootstrap, organization, data initialization, debug output.  1344 bytes of BASIC
+* [Y2](impressions/y2.md) - scoring of dice, basic loop to roll randomly and see the scores to sanity-check the work.  2892 bytes of BASIC.  so 1,548 new bytes in this revision.
 
 
 
