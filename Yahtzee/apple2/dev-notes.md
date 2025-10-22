@@ -1,5 +1,24 @@
 # Dev Notes for Applesoft Yahtzee
 
+There's not a whole lot of documentation in the code.  There's not a
+ton of room available, even in a machine with 64K of RAM.  The
+`FRE(0)` function says there's a baseline of 36,348 bytes available.
+Every comment takes at least 7 bytes - five bytes of per-line
+overhead, one byte for the `REM` token, and then one byte for every
+character after that.  There's a runtime penalty as well, with the
+interpreter executing the line, seeing the `REM` token, and then
+moving on to the next line. So the majority of the actual documentation and
+interesting stuff is out here in supplemental-documentation land.
+
+## Version impressions
+
+Writing up a short bit of snibbage for the different versions.
+
+* ![Y1](impressions/y1.md) - bootstrap, organization, data initialization, debug output.  1344 bytes of BASIC
+* ![Y2](impressions/y2.md) - scoring of dice, basic loop to roll randomly and see the scores to sanity-check the work.  2892 bytes of BASIC.  so 1,548 new bytes in this revision.
+
+
+
 ## Subroutine organization
 
 There are no named procedures or functions in 8-bit-land BASIC
@@ -74,8 +93,4 @@ These are used in the scoring subroutine, so will clobber anything else of the s
 * `SHANCE` - the *Chance* score, sum of all five dice
 * `D` - current dice face when walking `DICE`  **1-based**
 * `H2` `H3` `HS` `HY` - "Has" flags (zero or one) - has... 2 (of the same face), 3 (of the same face) straight (short or long), or yahtzee.
-
-
-
-
 
