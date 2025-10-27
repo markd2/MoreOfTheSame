@@ -16,7 +16,7 @@ Writing up a short bit of snibbage for the different versions.
 
 * [Y1](impressions/y1.md) - bootstrap, organization, data initialization, debug output.  1344 bytes of BASIC
 * [Y2](impressions/y2.md) - scoring of dice, basic loop to roll randomly and see the scores to sanity-check the work.  2892 bytes of BASIC.  so 1,548 new bytes in this revision.
-
+* [Y3](impressions/y3.md)
 
 
 ## Subroutine organization
@@ -38,22 +38,29 @@ I broke out the "functions" before writing anything, so space is available for t
 work, but hasn't necessarily been done yet.
 
 * `1000` Display dice and keepies
-* `2000` Input keep choice
-* `3000` _available_ (was going to use that for scoring input, but I put that at line 10000)
+* ~`2000` Input keep choice~ - Is currently in with line-input
+* `3000` scoring UI picking where on player's scorecard the dice go
 * `4000` display current score card
 * `5000` computer player logic
-* `6000` line input / getting stuff from the user
+* `6000` line input / getting stuff from the user (added in **y3**)
 * `7000` display debug info (added in **y1**)
-* `8000` roll dice, honoring keepies
+* `8000` roll dice, honoring keepies (added in **y2** and **y3**)
 * `9000` splash screen
 * `10000` scoring the dice (added in **y2**)
 * `11000` data and initialization (added in **y1**)
-* `12000` help (originally collided with 11000 in the paper notes. oops!)
+* `12000` help (originally collided with 11000 in the paper notes. oops!) (stub added in **y3**)
+
+### Y2
 
 So as of this writing in y2, not a whole lot's actually been done, but the core 
 scoring logic is in there, which is probably one of the more complex parts.  The
 user input parts will probalby be tedious to start out with before building a 
 fun text-based UI.
+
+### Y3
+
+As of this writing in y3, the core game loop is taking shape, and we're positioned
+pretty well to add the UI for choosing the score in y4.
 
 
 ## Data Dictionary
@@ -93,4 +100,11 @@ These are used in the scoring subroutine, so will clobber anything else of the s
 * `SHANCE` - the *Chance* score, sum of all five dice
 * `D` - current dice face when walking `DICE`  **1-based**
 * `H2` `H3` `HS` `HY` - "Has" flags (zero or one) - has... 2 (of the same face), 3 (of the same face) straight (short or long), or yahtzee.
+
+Line Input (subroutine at 6000) uses this to do its work and to
+communicate back to the main loop.  `IR` is how it tells the game loop
+that something interesting happened that it should take care of.
+
+* `X$` - scratch input string
+* `IR` - Input Result.  1 - re-roll.  2 - keepies have been updated.  3 - user wants to score things
 
