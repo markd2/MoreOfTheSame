@@ -61,3 +61,32 @@ In this example, the user rolled a 5, 3, 4, 5, 6.  With that, they can do:
 
 There's also a video:  ![](assets/y2.mov)
 
+### Y3 - Game Loopy
+
+Y3 lets you play the game without the computer player or recording a score.
+Other things work - such as displaying the hand, keeping dice, re-rolling other
+dice, calling a scoring routine to calculate the scores, and a place holder to
+actually add them to the player's score sheet.
+
+It takes out the "roll and display scores" loop from the Y2 and replace it with
+the start of the Real Game Loop.
+
+It's all purely TTY/command-line right now (no addressible text used), mainly
+for simplicity - get the game working like that, then I can add stuff like
+drawing dice, and making a fancy scorecard.
+
+The input routine was the main thing I needed to give a think through. There's a number
+of commands you can do:
+
+* "R" - Roll (moves to next turn)
+* "K" - update keeps (does not affect current turn/round)
+* "S" - Score (and end round)
+* "Q" - Quit with verification
+* "^C" - just quit
+* "?" - display rules (placeholder)
+* "D" - Display the debug screen
+
+Here's a screenie: ![](assets/y3.png)
+
+and a video: ![](assets/y3.mov) showing things.
+
