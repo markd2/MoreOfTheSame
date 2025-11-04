@@ -90,3 +90,21 @@ Here's a screenie: ![](assets/y3.png)
 
 and a video: ![](assets/y3.mov) showing things.
 
+
+### Y4 - Score Cards
+
+Now that we've got scoring, and can do commands, time to fill out our
+score card.
+
+Have a screenie:
+
+![](assets/y4.png)
+
+The score card is presented, then the user asked to input a letter where to
+record the score.
+
+And an actual one-person no opponnent game. You can see keeping dice, rolling,
+and adding to the score sheet.
+
+![](assets/y4.mov)
+
