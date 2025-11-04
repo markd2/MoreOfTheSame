@@ -86,7 +86,7 @@ of commands you can do:
 * "?" - display rules (placeholder)
 * "D" - Display the debug screen
 
-Here's a screenie: ![](assets/y3.png)
+Here's a screenie: ![](assets/Y3.png)
 
 and a video: ![](assets/y3.mov) showing things.
 
@@ -106,5 +106,5 @@ record the score.
 And an actual one-person no opponnent game. You can see keeping dice, rolling,
 and adding to the score sheet.
 
-![](assets/y4.mov)
+have a video: ![](assets/y4.mov) showing things.
 
