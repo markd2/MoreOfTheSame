@@ -2,6 +2,14 @@
 
 First version of the first project in this repo.  yay me.
 
+* To see the latest (extracted) code, [check it out](yahtzee.bas).
+* There's some [dev notes](dev-notes.md).
+* There's per-version [impressions](impressions/).
+
+Program development on an actual Apple 2 with a BMOW [Floopy Emu](https://shop.bigmessowires.com/products/floppy-emu-model-c) instead of physical disks.
+
+Program playback screenshots and animations via [Virtual //](https://www.virtualii.com)
+
 Using **Apple Commander** (https://applecommander.github.io) for accessing the goodies off of the committed disk image.
 
 Extract the Applesoft program with something like:
@@ -10,11 +18,6 @@ Extract the Applesoft program with something like:
 % ~/bin/ac-mac-aarch64-13.0 -e Yahtzee.DO PROGRAM_NAME > blah.bas.txt
 ```
 
-To see the latest (extracted) code, [check it out](yahtzee.bas)
-
-Program development on an actual Apple 2 with a BMOW [Floopy Emu](https://shop.bigmessowires.com/products/floppy-emu-model-c) instead of physical disks.
-
-Program playback screenshots and animations via [Virtual //](https://www.virtualii.com)
 
 ## Notes
 
@@ -106,5 +109,7 @@ record the score.
 And an actual one-person no opponnent game. You can see keeping dice, rolling,
 and adding to the score sheet.
 
-have a video: ![](assets/y4.mov) showing things.
+have a video: ![](assets/y4.mov) ([assets/y4.mov](assets/y4.mov) because it's too big 
+to inline (?)) showing things.
+
 
