@@ -62,6 +62,13 @@ fun text-based UI.
 As of this writing in y3, the core game loop is taking shape, and we're positioned
 pretty well to add the UI for choosing the score in y4.
 
+### Y4
+
+In y4, added the display of the score card.  It shows available slots (and what
+score would be used for the current dice) and lets the user choose (via entering
+A-M) what to score in.  This is playable (roll, keep, score, roll keep, score).
+No computer player or end of game celebration.  
+
 
 ## Data Dictionary
 
@@ -71,8 +78,8 @@ looking like this:
 
 ![](assets/data-dictionary.jpg)
 
-Don't forget (like I did with `SCHANCE` (Score Chance) colliding with `SCCOUNT` (constant
-for count of scores))
+Don't forget (like I did with `SCHANCE` (Score Chance) colliding with `SCOUNT` (constant
+for Score Count))
 
 Note there is some confusion of zero and one indexing.  Applesoft arrays are zero indexed,
 but `DIM(X)` is inclusive to the given index.  So `DIM(13)` gives a 14 element array, 
