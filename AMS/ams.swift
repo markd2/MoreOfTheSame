@@ -30,6 +30,28 @@ while sanityCheck(grid: grid, order: order) {
 }
 */
 
+// now take a sentence, strip out all of the non-characters
+
+// then pick two anagrams
+
+let anagramList: [String: [[String]] ] = [
+"A": [ ["ALERT", "ALTER"], ["ALONE", "ANOLE"] ],
+"C": [ ["CATER", "TRACE"] ],
+"D": [ ["DELTA", "DEALT"], ["DUSTY", "STUDY"] ],
+"E": [ ["EARTH", "HEART"] ],
+"H": [ ["HEART", "EARTH"] ],
+"I": [ ["INERT", "NITER"], ["INLET", "INTEL"] ],
+"J": [ ["JUNTA", "JAUNT"], ["KITES", "SKITE"], ["LEAST", "STALE"] ],
+"N": [ ["NERVE", "NEVER"], ["NERVE", "NEVER"] ],
+"O": [ ["OCEAN", "CANOE"], ["OLIVE", "VOILE"], ["ORATE", "OATER"], ["OPTIC", "TOPIC"], ["ONSET", "STONE"] ],
+"S": [ ["STARE", "RATES"], ["STARE", "RATES"] ],
+"T": [ ["TABLE", "BLEAT"] ],
+"W": [ ["WASTE", "SWEAT"] ],
+"Y": [ ["YURTS", "RUSTY"] ]
+]
+
+
+
 // --------------------------------------------------
 func sanityCheck(grid: [[Cell]], order: Int) -> Bool {
     // S = n(n^2 + 1) / 2
@@ -122,3 +144,30 @@ func print(grid: [[Cell]], order: Int) {
         print("\n")
     }
 }
+
+
+/* some quotes
+Stay kind, choose joy daily now
+Give more, expect little back
+Simple acts spark great change
+*/
+
+/* some anagrams
+{
+"A": [ ["ALERT", "ALTER"], ["ALONE", "ANOLE"] ],
+"C": [ ["CATER", "TRACE"] ],
+"D": [ ["DELTA", "DEALT"], ["DUSTY", "STUDY"] ],
+"E": [ ["EARTH", "HEART"] ],
+"H": [ ["HEART", "EARTH"] ],
+"I": [ ["INERT", "NITER"], ["INLET", "INTEL"] ],
+"J": [ ["JUNTA", "JAUNT"], ["KITES", "SKITE"], ["LEAST", "STALE"] ],
+"N": [ ["NERVE", "NEVER"], ["NERVE", "NEVER"] ],
+"O": [ ["OCEAN", "CANOE"], ["OLIVE", "VOILE"], ["ORATE", "OATER"], ["OPTIC", "TOPIC"], ["ONSET", "STONE] ],
+"S": [ ["STARE", "RATES"], ["STARE", "RATES"] ],
+"T": [ ["TABLE", "BLEAT"] ],
+"W": [ ["WASTE", "SWEAT"] ],
+"Y": [ ["YURTS", "RUSTY"] ]
+}
+
+*/
+
