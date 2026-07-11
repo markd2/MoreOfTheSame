@@ -12,3 +12,7 @@ poor reader, looking at this 9 year old README in a repo with seventeen commits.
 weep for you.
 
 
+Projects:
+
+* [Yahtzee game](Yahtzee)
+* [Anagram Magic Square](AMS)
