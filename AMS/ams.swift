@@ -38,6 +38,79 @@ let chars = Array(quote.filter { $0.isLetter }.uppercased().utf8)
 
 // then pick two anagrams
 
+var anagramList: [String: [[String]] ] = [
+"A": [ ["ALERT", "ALTER"], ["ALONE", "ANOLE"] ],
+"C": [ ["CATER", "TRACE"] ],
+"D": [ ["DELTA", "DEALT"], ["DUSTY", "STUDY"] ],
+"E": [ ["EARTH", "HEART"] ],
+"H": [ ["HEART", "EARTH"] ],
+"I": [ ["INERT", "NITER"], ["INLET", "INTEL"] ],
+"J": [ ["JUNTA", "JAUNT"], ],
+"K": [ ["KITES", "SKITE"] ],
+"L": [ ["LEAST", "STALE"] ],
+"N": [ ["NERVE", "NEVER"], ["NERVE", "NEVER"] ],
+"O": [ ["OCEAN", "CANOE"], ["OLIVE", "VOILE"], ["ORATE", "OATER"], ["OPTIC", "TOPIC"], ["ONSET", "STONE"] ],
+"S": [ ["STARE", "RATES"], ["SHEAR", "HEARS"], ["SCALE", "LACES"], ["SCARE", "ACRES"] ],
+"T": [ ["TABLE", "BLEAT"] ],
+"W": [ ["WASTE", "SWEAT"] ],
+"Y": [ ["YURTS", "RUSTY"], ["YOMEN", "MONEY"], ["YEAST", "YEATS" ] ]
+]
+
+let questions = [
+"ACRES": "Green ____",
+"ALERT": "Red _____",
+"ALONE": "Home ____",
+"ALTER": "_____ ego",
+"ANOLE": "Strange little lizard",
+"BLEAT": "Sound a sheep makes",
+"CANOE": "Trudy's obsession",
+"CATER": "_____ a banqueet",
+"DEALT": "Having handed out cards",
+"DELTA": "We love to fly and it shows",
+"DUSTY": "Covered in a fine powder",
+"EARTH": "Dirt",
+"HEARS": "Detected something aurally",
+"HEART": "Lub dub lub dub",
+"INERT": "",
+"INLET": "",
+"INTEL": "",
+"JAUNT": "",
+"JUNTA": "",
+"KITES": "",
+"LACES": "",
+"LEAST": "",
+"MONEY": "",
+"NERVE": "",
+"NEVER": "",
+"NITER": "",
+"OATER": "",
+"OCEAN": "",
+"OLIVE": "",
+"ONSET": "",
+"OPTIC": "",
+"ORATE": "",
+"RATES": "",
+"RUSTY": "",
+"SCALE": "",
+"SCARE": "",
+"SHEAR": "",
+"SKITE": "",
+"STALE": "",
+"STARE": "",
+"STONE": "",
+"STUDY": "",
+"SWEAT": "",
+"TABLE": "",
+"TOPIC": "",
+"TRACE": "",
+"VOILE": "",
+"WASTE": "",
+"YEAST": "All rise, all rise",
+"YEATS": "A perne in a gyre",
+"YOMEN": "_____ of the guard",
+"YURTS": "There's no here, but there is room for U"
+]
+
 for row in 0 ..< order {
     for column in 0 ..< order {
         var cell = grid[row][column]
@@ -60,25 +133,6 @@ for row in 0 ..< order {
         grid[row][column] = cell
     }
 }
-
-var anagramList: [String: [[String]] ] = [
-"A": [ ["ALERT", "ALTER"], ["ALONE", "ANOLE"] ],
-"C": [ ["CATER", "TRACE"] ],
-"D": [ ["DELTA", "DEALT"], ["DUSTY", "STUDY"] ],
-"E": [ ["EARTH", "HEART"] ],
-"H": [ ["HEART", "EARTH"] ],
-"I": [ ["INERT", "NITER"], ["INLET", "INTEL"] ],
-"J": [ ["JUNTA", "JAUNT"], ],
-"K": [ ["KITES", "SKITE"] ],
-"L": [ ["LEAST", "STALE"] ],
-"N": [ ["NERVE", "NEVER"], ["NERVE", "NEVER"] ],
-"O": [ ["OCEAN", "CANOE"], ["OLIVE", "VOILE"], ["ORATE", "OATER"], ["OPTIC", "TOPIC"], ["ONSET", "STONE"] ],
-"S": [ ["STARE", "RATES"], ["SHEAR", "HEARS"], ["SCALE", "LACES"], ["SCARE", "ACRES"] ],
-"T": [ ["TABLE", "BLEAT"] ],
-"W": [ ["WASTE", "SWEAT"] ],
-"Y": [ ["YURTS", "RUSTY"], ["YOMEN", "MONEY"], ["YEAST", "YEATS" ] ]
-]
-
 
 printGrid(grid: grid, order: order)
 
@@ -187,7 +241,9 @@ func printGrid(grid: [[Cell]], order: Int) {
         print("\n")
     }
     for i in 0 ..< (order * order) - 1 {
-        print("\(i) : \(solutions[i])")
+        let solution = solutions[i]
+        let question = questions[solution]!
+        print("\(i) : \(solutions[i]) : \(question)")
     }
 }
 
@@ -217,61 +273,5 @@ Simple acts spark great change
 
 */
 
-
-
-let questions = [
-"ACRES": "",
-"ALERT": "",
-"ALONE": "",
-"ALTER": "",
-"ANOLE": "",
-"BLEAT": "",
-"CANOE": "",
-"CATER": "",
-"DEALT": "",
-"DELTA": "",
-"DUSTY": "",
-"EARTH": "",
-"HEARS": "",
-"HEART": "",
-"INERT": "",
-"INLET": "",
-"INTEL": "",
-"JAUNT": "",
-"JUNTA": "",
-"KITES": "",
-"LACES": "",
-"LEAST": "",
-"MONEY": "",
-"NERVE": "",
-"NEVER": "",
-"NITER": "",
-"OATER": "",
-"OCEAN": "",
-"OLIVE": "",
-"ONSET": "",
-"OPTIC": "",
-"ORATE": "",
-"RATES": "",
-"RUSTY": "",
-"SCALE": "",
-"SCARE": "",
-"SHEAR": "",
-"SKITE": "",
-"STALE": "",
-"STARE": "",
-"STONE": "",
-"STUDY": "",
-"SWEAT": "",
-"TABLE": "",
-"TOPIC": "",
-"TRACE": "",
-"VOILE": "",
-"WASTE": "",
-"YEAST": "",
-"YEATS": "",
-"YOMEN": "",
-"YURTS": ""
-]
 
 
