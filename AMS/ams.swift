@@ -2,8 +2,9 @@
 
 import Foundation
 
-// swiftc -o ams ams.swift
+// swiftc -g -o ams ams.swift
 
+let quote = "Stay kind, choose joy daily now."
 let order = 5
 
 struct Cell {
@@ -18,8 +19,9 @@ struct Cell {
     }
 }
 
-let grid = magicify(order: order)
-print(grid: grid, order: order)
+var grid = magicify(order: order)
+var solutions: [String] = [String](repeating: "", count: order * order)
+printNumbers(grid: grid, order: order)
 
 /*
 var count = 0
@@ -32,9 +34,11 @@ while sanityCheck(grid: grid, order: order) {
 
 // now take a sentence, strip out all of the non-characters
 
+let chars = Array(quote.filter { $0.isLetter }.uppercased().utf8)
+
 // then pick two anagrams
 
-let anagramList: [String: [[String]] ] = [
+var anagramList: [String: [[String]] ] = [
 "A": [ ["ALERT", "ALTER"], ["ALONE", "ANOLE"] ],
 "C": [ ["CATER", "TRACE"] ],
 "D": [ ["DELTA", "DEALT"], ["DUSTY", "STUDY"] ],
@@ -42,14 +46,40 @@ let anagramList: [String: [[String]] ] = [
 "H": [ ["HEART", "EARTH"] ],
 "I": [ ["INERT", "NITER"], ["INLET", "INTEL"] ],
 "J": [ ["JUNTA", "JAUNT"], ["KITES", "SKITE"], ["LEAST", "STALE"] ],
+"K": [ ["KITES", "SKITE"] ],
+"L": [ ["LEAST", "STALE"] ],
 "N": [ ["NERVE", "NEVER"], ["NERVE", "NEVER"] ],
 "O": [ ["OCEAN", "CANOE"], ["OLIVE", "VOILE"], ["ORATE", "OATER"], ["OPTIC", "TOPIC"], ["ONSET", "STONE"] ],
 "S": [ ["STARE", "RATES"], ["STARE", "RATES"] ],
 "T": [ ["TABLE", "BLEAT"] ],
 "W": [ ["WASTE", "SWEAT"] ],
-"Y": [ ["YURTS", "RUSTY"] ]
+"Y": [ ["YURTS", "RUSTY"], ["YOMEN", "MONEY"], ["YEAST", "YEATS" ] ]
 ]
 
+for row in 0 ..< order {
+    for column in 0 ..< order {
+        var cell = grid[row][column]
+        let number = cell.number - 1
+
+        let char = String(UnicodeScalar(chars[number]))
+
+        // car
+        var candidates = anagramList[String(char)]!
+        
+        // cdr
+        let candidate = candidates.removeFirst()
+        anagramList[String(char)] = candidates
+
+        cell.solution = candidate[0]
+        cell.clue = candidate[1]
+
+        solutions[number] = cell.clue
+
+        grid[row][column] = cell
+    }
+}
+
+printGrid(grid: grid, order: order)
 
 
 // --------------------------------------------------
@@ -135,13 +165,28 @@ func magicify(order: Int) -> [[Cell]] {
 
 // --------------------------------------------------
 
-func print(grid: [[Cell]], order: Int) {
+func printNumbers(grid: [[Cell]], order: Int) {
     for row in 0 ..< order {
         for column in 0 ..< order {
             let fmt = String(format: "%3d", grid[row][column].number)
             print(fmt, terminator: "")
         }
         print("\n")
+    }
+}
+
+
+func printGrid(grid: [[Cell]], order: Int) {
+    for row in 0 ..< order {
+        for column in 0 ..< order {
+            let cell = grid[row][column]
+            print("\(cell.solution)(\(cell.number))  ",
+                  terminator: "")
+        }
+        print("\n")
+    }
+    for i in 0 ..< (order * order) - 1 {
+        print("\(i) : \(solutions[i])")
     }
 }
 
@@ -166,7 +211,7 @@ Simple acts spark great change
 "S": [ ["STARE", "RATES"], ["STARE", "RATES"] ],
 "T": [ ["TABLE", "BLEAT"] ],
 "W": [ ["WASTE", "SWEAT"] ],
-"Y": [ ["YURTS", "RUSTY"] ]
+"Y": [ ["YURTS", "RUSTY"], ["YOMEN", "MONEY"] ]
 }
 
 */
