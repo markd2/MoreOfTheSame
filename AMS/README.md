@@ -30,6 +30,8 @@ column add up to 65.
 
 Here's the solved puzzle:
 
+![example anagram magic square solved](solved.jpg)
+
 ## What this is
 
 This/these are anagram magic square generators.  Input a string, 25 characters,
