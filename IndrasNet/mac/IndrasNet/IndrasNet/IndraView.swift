@@ -4,9 +4,18 @@ import AppKit
 import CoreGraphics
 
 private let π = CGFloat.pi
+typealias Unit = CGFloat
 
 class IndraView: NSView {
     var angularDivisions: Int = 5 {
+        didSet {
+            needsDisplay = true
+        }
+    }
+
+    // points per unit
+    let unitScale: CGFloat = 10
+    var centerOpening: Unit = 5 {
         didSet {
             needsDisplay = true
         }
@@ -24,6 +33,7 @@ class IndraView: NSView {
         NSColor.lightGray.set()
 
         let center = bounds.center
+        let openingOffset = centerOpening * unitScale
 
         let anglePerDivision = 2 * π / CGFloat(angularDivisions)
 
@@ -38,15 +48,15 @@ class IndraView: NSView {
             context.saveGState()
             
             context.concatenate(rotating)
-
+            
             // now draw a line along the X axis
             let path = CGMutablePath()
-            path.move(to: CGPoint.zero)
+            path.move(to: CGPoint(x: 0.0, y: openingOffset))
             path.addLine(to: CGPoint(x: 0.0, y: 5000.0))
-            
+                  
             context.addPath(path)
             context.strokePath()
-            
+                      
             context.restoreGState()
         }
         

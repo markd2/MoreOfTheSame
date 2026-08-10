@@ -11,12 +11,15 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet var window: NSWindow!
+
     @IBOutlet var indraView: IndraView!
     @IBOutlet var angularDivisionSlider: NSSlider!
+    @IBOutlet var centerOpeningSlider: NSSlider!
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         indraView.angularDivisions = angularDivisionSlider.integerValue
+        indraView.centerOpening = Unit(centerOpeningSlider.integerValue)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -31,7 +34,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 extension AppDelegate {
     @IBAction func handleAngularDivisionSlider(_ sender: NSSlider) {
         indraView.angularDivisions = sender.integerValue
-        print("\(sender.intValue)")
+    }
+
+    @IBAction func handleCenterOpeningSlider(_ sender: NSSlider) {
+        indraView.centerOpening = Unit(sender.integerValue)
     }
 }
 
