@@ -96,6 +96,12 @@ class IndraView: NSView {
                 drawDiamond(size: diamondSize, anchor: anchor)
             }
         }
+
+        let circleRect = CGRect(x: center.x - openingOffset,
+                                y: center.y - openingOffset,
+                                width: openingOffset * 2,
+                                height: openingOffset * 2)
+        context.strokeEllipse(in: circleRect)
     }
     
     override func draw (_ rect: CGRect) {
