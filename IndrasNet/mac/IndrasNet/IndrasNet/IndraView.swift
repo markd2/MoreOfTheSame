@@ -8,24 +8,55 @@ typealias Unit = CGFloat
 
 class IndraView: NSView {
     var angularDivisions: Int = 5 {
-        didSet {
-            needsDisplay = true
-        }
+        didSet { needsDisplay = true }
+    }
+
+    var centerOpening: Unit = 5 {
+        didSet { needsDisplay = true }
+    }
+
+    var diamondSize: Unit = 1 {
+        didSet { needsDisplay = true }
+    }
+
+    var diamondSpace: Unit = 0.5 {
+        didSet { needsDisplay = true }
+    }
+
+    var diamondCount: Int = 5 {
+        didSet { needsDisplay = true }
     }
 
     // points per unit
     let unitScale: CGFloat = 10
-    var centerOpening: Unit = 5 {
-        didSet {
-            needsDisplay = true
-        }
-    }
 
     override var isFlipped : Bool{
         return true
     }
+
+    func drawDiamond(size: Unit, anchor: Unit) {
+        let context = currentContext
+
+        context.saveGState()
+        defer { context.restoreGState() }
+
+        NSColor.orange.set()
+        
+        let path = CGMutablePath()
+
+        let size = (diamondSize / 2.0) * unitScale
+
+        path.move(to: CGPoint(x: anchor, y: 0.0))
+        path.addLine(to: CGPoint(x: anchor + size, y: size))
+        path.addLine(to: CGPoint(x: anchor + size * 2.0, y: 0.0))
+        path.addLine(to: CGPoint(x: anchor + size, y: -size))
+        path.closeSubpath()
+
+        context.addPath(path)
+        context.strokePath()
+    }
     
-    func drawGuidelines() {
+    func drawNet() {
         let context = currentContext
         context.saveGState()
         defer { context.restoreGState() }
@@ -38,6 +69,9 @@ class IndraView: NSView {
         let anglePerDivision = 2 * π / CGFloat(angularDivisions)
 
         for i in 0 ..< angularDivisions {
+            context.saveGState()
+            defer { context.restoreGState() }
+
             // move the world around
             let identity = CGAffineTransform.identity
             let shiftingCenter = identity.translatedBy(x: center.x,
@@ -45,28 +79,30 @@ class IndraView: NSView {
             let angle = CGFloat(i) * anglePerDivision
             let rotating = shiftingCenter.rotated(by: angle)
             
-            context.saveGState()
-            
             context.concatenate(rotating)
+            let xfudgeFactor = i.isMultiple(of: 2) ? 0 : 0.5 * unitScale
             
             // now draw a line along the X axis
             let path = CGMutablePath()
-            path.move(to: CGPoint(x: openingOffset, y: 0.0))
+            path.move(to: CGPoint(x: openingOffset + xfudgeFactor, y: 0.0))
             path.addLine(to: CGPoint(x: 5000.0, y: 0.0))
                   
             context.addPath(path)
             context.strokePath()
-                      
-            context.restoreGState()
+            for d in 0 ..< diamondCount {
+                var anchor = openingOffset + CGFloat(d) * diamondSize * unitScale
+                anchor += CGFloat(d) * diamondSpace * unitScale
+                anchor += xfudgeFactor
+                drawDiamond(size: diamondSize, anchor: anchor)
+            }
         }
-        
     }
     
     override func draw (_ rect: CGRect) {
         NSColor.white.set()
         bounds.fill()
 
-        drawGuidelines()
+        drawNet()
 
         NSColor.black.set()
         bounds.frame()

@@ -16,6 +16,8 @@
             <connections>
                 <outlet property="angularDivisionSlider" destination="F6R-WG-oFn" id="FVS-CI-w3J"/>
                 <outlet property="centerOpeningSlider" destination="5Md-KV-dcg" id="fqN-uq-pbt"/>
+                <outlet property="diamondSizeSlider" destination="199-I9-WTu" id="YpP-bC-g2h"/>
+                <outlet property="diamondSpaceSlider" destination="MlA-Kb-Ydq" id="VL3-Ib-3ud"/>
                 <outlet property="indraView" destination="XFC-Jp-2Kw" id="xkD-4U-FHp"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -708,7 +710,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F6R-WG-oFn">
                         <rect key="frame" x="18" y="290" width="166" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="3" maxValue="50" doubleValue="10" tickMarkPosition="above" sliderType="linear" id="Zrl-V1-5MU">
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="3" maxValue="50" doubleValue="3" tickMarkPosition="above" sliderType="linear" id="Zrl-V1-5MU">
                             <font key="font" metaFont="system" size="12"/>
                         </sliderCell>
                         <connections>
@@ -732,6 +734,44 @@
                         </sliderCell>
                         <connections>
                             <action selector="handleCenterOpeningSlider:" target="Voe-Tx-rLC" id="3Tb-C7-hX8"/>
+                        </connections>
+                    </slider>
+                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qoq-6q-KiC">
+                        <rect key="frame" x="18" y="220" width="87" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Diamond Size" id="dHU-yo-fG1">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="199-I9-WTu">
+                        <rect key="frame" x="18" y="186" width="166" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="0.5" maxValue="10" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="jri-6Z-aCc">
+                            <font key="font" metaFont="system" size="12"/>
+                        </sliderCell>
+                        <connections>
+                            <action selector="handleDiamondSizeSlider:" target="Voe-Tx-rLC" id="n0Z-5f-OF8"/>
+                        </connections>
+                    </slider>
+                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Au7-bW-t7U">
+                        <rect key="frame" x="18" y="168" width="100" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Diamond Space" id="y9l-7P-bi2">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MlA-Kb-Ydq">
+                        <rect key="frame" x="18" y="134" width="166" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="10" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="e6g-ag-gbb">
+                            <font key="font" metaFont="system" size="12"/>
+                        </sliderCell>
+                        <connections>
+                            <action selector="handleDiamondSpaceSlider:" target="Voe-Tx-rLC" id="Msk-X2-9gN"/>
                         </connections>
                     </slider>
                 </subviews>
