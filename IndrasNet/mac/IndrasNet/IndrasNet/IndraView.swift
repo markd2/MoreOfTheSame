@@ -80,11 +80,11 @@ class IndraView: NSView {
             let rotating = shiftingCenter.rotated(by: angle)
             
             context.concatenate(rotating)
-            let xfudgeFactor = i.isMultiple(of: 2) ? 0 : 0.5 * unitScale
+            let xfudgeFactor = i.isMultiple(of: 2) ? 0 : 0.5 * unitScale * diamondSize
             
             // now draw a line along the X axis
             let path = CGMutablePath()
-            path.move(to: CGPoint(x: openingOffset + xfudgeFactor, y: 0.0))
+            path.move(to: CGPoint(x: openingOffset - xfudgeFactor, y: 0.0))
             path.addLine(to: CGPoint(x: 5000.0, y: 0.0))
                   
             context.addPath(path)
@@ -92,7 +92,7 @@ class IndraView: NSView {
             for d in 0 ..< diamondCount {
                 var anchor = openingOffset + CGFloat(d) * diamondSize * unitScale
                 anchor += CGFloat(d) * diamondSpace * unitScale
-                anchor += xfudgeFactor
+                anchor -= xfudgeFactor
                 drawDiamond(size: diamondSize, anchor: anchor)
             }
         }
