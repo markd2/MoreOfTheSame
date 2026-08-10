@@ -51,8 +51,8 @@ class IndraView: NSView {
             
             // now draw a line along the X axis
             let path = CGMutablePath()
-            path.move(to: CGPoint(x: 0.0, y: openingOffset))
-            path.addLine(to: CGPoint(x: 0.0, y: 5000.0))
+            path.move(to: CGPoint(x: openingOffset, y: 0.0))
+            path.addLine(to: CGPoint(x: 5000.0, y: 0.0))
                   
             context.addPath(path)
             context.strokePath()
