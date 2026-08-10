@@ -5,8 +5,12 @@ import CoreGraphics
 
 private let π = CGFloat.pi
 
-class IntraView: NSView {
-    var angularDivisions: Int = 30
+class IndraView: NSView {
+    var angularDivisions: Int = 5 {
+        didSet {
+            needsDisplay = true
+        }
+    }
 
     override var isFlipped : Bool{
         return true

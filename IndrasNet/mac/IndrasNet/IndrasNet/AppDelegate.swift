@@ -11,20 +11,27 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet var window: NSWindow!
+    @IBOutlet var indraView: IndraView!
+    @IBOutlet var angularDivisionSlider: NSSlider!
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        indraView.angularDivisions = angularDivisionSlider.integerValue
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
     }
 
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
     }
+}
 
-
+// UI Nonsense
+extension AppDelegate {
+    @IBAction func handleAngularDivisionSlider(_ sender: NSSlider) {
+        indraView.angularDivisions = sender.integerValue
+        print("\(sender.intValue)")
+    }
 }
 
