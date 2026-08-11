@@ -104,7 +104,7 @@ class IndraView: NSView {
             var scaledDiamondSize = diamondSize
             var scaledDiamondSpace = diamondSpace
 
-            for d in 0 ..< 2 {
+            for d in 0 ..< 10 {
                 drawDiamond(size: scaledDiamondSize, anchor: anchor)
 
                 scaledDiamondSize *= diamondGrowth
