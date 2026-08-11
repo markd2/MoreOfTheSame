@@ -48,12 +48,16 @@ class IndraView: NSView {
         
         let path = CGMutablePath()
 
-        let size = (size / 2.0) * unitScale
+        let size = size / 2.0
 
-        path.move(to: CGPoint(x: anchor, y: 0.0))
-        path.addLine(to: CGPoint(x: anchor + size, y: size))
-        path.addLine(to: CGPoint(x: anchor + size * 2.0, y: 0.0))
-        path.addLine(to: CGPoint(x: anchor + size, y: -size))
+        path.move(to: CGPoint(x: anchor * unitScale,
+                              y: 0.0))
+        path.addLine(to: CGPoint(x: (anchor + size) * unitScale,
+                                 y: size * unitScale))
+        path.addLine(to: CGPoint(x: (anchor + size * 2) * unitScale,
+                                 y: 0.0))
+        path.addLine(to: CGPoint(x: (anchor + size) * unitScale,
+                                 y: -size * unitScale))
         path.closeSubpath()
 
         context.addPath(path)
@@ -68,7 +72,7 @@ class IndraView: NSView {
         NSColor.lightGray.set()
 
         let center = bounds.center
-        let openingOffset = centerOpening * unitScale
+        let openingOffset = centerOpening
 
         let anglePerDivision = 2 * π / CGFloat(angularDivisions)
 
@@ -84,32 +88,32 @@ class IndraView: NSView {
             let rotating = shiftingCenter.rotated(by: angle)
             
             context.concatenate(rotating)
-            let xfudgeFactor = i.isMultiple(of: 2) ? 0 : 0.5 * unitScale * diamondSize
+            let xFudgeFactor = i.isMultiple(of: 2) ? 0 : 0.5 * diamondSize
             
-            // now draw a line along the X axis
+            // now draw a guide line along the X axis
             let path = CGMutablePath()
-            path.move(to: CGPoint(x: openingOffset - xfudgeFactor, y: 0.0))
-            path.addLine(to: CGPoint(x: 5000.0, y: 0.0))
+            path.move(to: CGPoint(x: (openingOffset - xFudgeFactor) * unitScale,
+                                  y: 0.0 * unitScale))
+            path.addLine(to: CGPoint(x: 5000.0 * unitScale,
+                                     y: 0.0 * unitScale))
                   
             context.addPath(path)
             context.strokePath()
 
-            for d in 0 ..< diamondCount {
-                let floatD = CGFloat(d) // #ILYS
-                
-                var anchor = openingOffset + floatD * diamondSize * unitScale
-                anchor += floatD * diamondSpace * unitScale * diamondGrowth
+            var anchor: CGFloat = openingOffset - xFudgeFactor
+            var scaledDiamondSize = diamondSize
+            var scaledDiamondSpace = diamondSize
 
-                anchor -= xfudgeFactor
-                drawDiamond(size: diamondSize + floatD * diamondGrowth * unitScale,
-                            anchor: anchor)
+            for d in 0 ..< 1 {
+                drawDiamond(size: scaledDiamondSize, anchor: anchor)
+                
             }
         }
 
-        let circleRect = CGRect(x: center.x - openingOffset,
-                                y: center.y - openingOffset,
-                                width: openingOffset * 2,
-                                height: openingOffset * 2)
+        let circleRect = CGRect(x: center.x - openingOffset * unitScale,
+                                y: center.y - openingOffset * unitScale,
+                                width: openingOffset * unitScale * 2,
+                                height: openingOffset * unitScale * 2)
         context.strokeEllipse(in: circleRect)
     }
     
