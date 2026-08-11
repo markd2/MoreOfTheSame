@@ -100,9 +100,8 @@ class IndraView: NSView {
                 var anchor = openingOffset + floatD * diamondSize * unitScale
                 anchor += floatD * diamondSpace * unitScale * diamondGrowth
 
-
                 anchor -= xfudgeFactor
-                drawDiamond(size: diamondSize * floatD * diamondGrowth,
+                drawDiamond(size: diamondSize + floatD * diamondGrowth * unitScale,
                             anchor: anchor)
             }
         }

@@ -787,7 +787,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wcv-Gd-VPV">
                         <rect key="frame" x="18" y="82" width="166" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="3" doubleValue="1.1000000000000001" tickMarkPosition="above" sliderType="linear" id="E95-A6-Jj9">
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="3" doubleValue="1.1000000000000001" tickMarkPosition="above" sliderType="linear" id="E95-A6-Jj9">
                             <font key="font" metaFont="system" size="12"/>
                         </sliderCell>
                         <connections>
