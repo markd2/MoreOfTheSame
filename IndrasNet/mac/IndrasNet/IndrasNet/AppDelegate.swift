@@ -65,7 +65,7 @@ extension AppDelegate {
     }
 
     @IBAction func handleCenterOpeningSlider(_ sender: NSSlider) {
-        indraView.centerOpening = Unit(sender.integerValue)
+        indraView.centerOpening = Unit(sender.doubleValue)
         updateUI()
     }
 
