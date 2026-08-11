@@ -11,6 +11,10 @@ class IndraView: NSView {
         didSet { needsDisplay = true }
     }
 
+    var rowCount: Int = 10 {
+        didSet { needsDisplay = true }
+    }
+
     var centerOpening: Unit = 5 {
         didSet { needsDisplay = true }
     }
@@ -28,6 +32,10 @@ class IndraView: NSView {
     }
 
     var diamondGrowth: Unit = 1.1 {
+        didSet { needsDisplay = true }
+    }
+
+    var showRadialGuides: Bool = true {
         didSet { needsDisplay = true }
     }
 
@@ -89,22 +97,24 @@ class IndraView: NSView {
             
             context.concatenate(rotating)
             let xFudgeFactor = i.isMultiple(of: 2) ? 0 : 0.5 * diamondSize
-            
-            // now draw a guide line along the X axis
-            let path = CGMutablePath()
-            path.move(to: CGPoint(x: (openingOffset - xFudgeFactor) * unitScale,
-                                  y: 0.0 * unitScale))
-            path.addLine(to: CGPoint(x: 5000.0 * unitScale,
-                                     y: 0.0 * unitScale))
-                  
-            context.addPath(path)
-            context.strokePath()
+
+            if showRadialGuides {
+                // now draw a guide line along the X axis
+                let path = CGMutablePath()
+                path.move(to: CGPoint(x: (openingOffset - xFudgeFactor) * unitScale,
+                                      y: 0.0 * unitScale))
+                path.addLine(to: CGPoint(x: 5000.0 * unitScale,
+                                         y: 0.0 * unitScale))
+                
+                context.addPath(path)
+                context.strokePath()
+            }
 
             var anchor: CGFloat = openingOffset - xFudgeFactor
             var scaledDiamondSize = diamondSize
             var scaledDiamondSpace = diamondSpace
 
-            for d in 0 ..< 10 {
+            for d in 0 ..< rowCount {
                 drawDiamond(size: scaledDiamondSize, anchor: anchor)
 
                 scaledDiamondSize *= diamondGrowth
@@ -114,11 +124,13 @@ class IndraView: NSView {
             }
         }
 
-        let circleRect = CGRect(x: center.x - openingOffset * unitScale,
-                                y: center.y - openingOffset * unitScale,
-                                width: openingOffset * unitScale * 2,
-                                height: openingOffset * unitScale * 2)
-        context.strokeEllipse(in: circleRect)
+        if showRadialGuides {
+            let circleRect = CGRect(x: center.x - openingOffset * unitScale,
+                                    y: center.y - openingOffset * unitScale,
+                                    width: openingOffset * unitScale * 2,
+                                    height: openingOffset * unitScale * 2)
+            context.strokeEllipse(in: circleRect)
+        }
     }
     
     override func draw (_ rect: CGRect) {

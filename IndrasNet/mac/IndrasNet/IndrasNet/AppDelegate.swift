@@ -17,6 +17,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var angularDivisionSlider: NSSlider!
     @IBOutlet var angularDivisionLabel: NSTextField!
 
+    @IBOutlet var rowCountSlider: NSSlider!
+    @IBOutlet var rowCountLabel: NSTextField!
+
     @IBOutlet var centerOpeningSlider: NSSlider!
     @IBOutlet var centerOpeningLabel: NSTextField!
 
@@ -28,6 +31,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet var diamondGrowthSlider: NSSlider!
     @IBOutlet var diamondGrowthLabel: NSTextField!
+
+    @IBOutlet var radialGuidesCheckbox: NSButton!
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -52,6 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 extension AppDelegate {
     func updateUI() {
         angularDivisionLabel.stringValue = "\(indraView.angularDivisions)"
+        rowCountLabel.stringValue = "\(indraView.rowCount)"
         
         centerOpeningLabel.stringValue = "\(indraView.centerOpening)"
         diamondSizeLabel.stringValue = "\(indraView.diamondSize)"
@@ -61,6 +67,11 @@ extension AppDelegate {
 
     @IBAction func handleAngularDivisionSlider(_ sender: NSSlider) {
         indraView.angularDivisions = sender.integerValue
+        updateUI()
+    }
+
+    @IBAction func handleRowCountSlider(_ sender: NSSlider) {
+        indraView.rowCount = sender.integerValue
         updateUI()
     }
 
@@ -81,6 +92,11 @@ extension AppDelegate {
 
     @IBAction func handleDiamondGrowthSlider(_ sender: NSSlider) {
         indraView.diamondGrowth = Unit(sender.doubleValue)
+        updateUI()
+    }
+
+    @IBAction func handleShowRadialGuidesCheckbox(_ sender: NSButton) {
+        indraView.showRadialGuides = sender.state == NSControl.StateValue.on
         updateUI()
     }
 }
