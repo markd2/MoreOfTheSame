@@ -27,6 +27,10 @@ class IndraView: NSView {
         didSet { needsDisplay = true }
     }
 
+    var diamondGrowth: Unit = 1.1 {
+        didSet { needsDisplay = true }
+    }
+
     // points per unit
     let unitScale: CGFloat = 10
 
@@ -44,7 +48,7 @@ class IndraView: NSView {
         
         let path = CGMutablePath()
 
-        let size = (diamondSize / 2.0) * unitScale
+        let size = (size / 2.0) * unitScale
 
         path.move(to: CGPoint(x: anchor, y: 0.0))
         path.addLine(to: CGPoint(x: anchor + size, y: size))
@@ -89,11 +93,17 @@ class IndraView: NSView {
                   
             context.addPath(path)
             context.strokePath()
+
             for d in 0 ..< diamondCount {
-                var anchor = openingOffset + CGFloat(d) * diamondSize * unitScale
-                anchor += CGFloat(d) * diamondSpace * unitScale
+                let floatD = CGFloat(d) // #ILYS
+                
+                var anchor = openingOffset + floatD * diamondSize * unitScale
+                anchor += floatD * diamondSpace * unitScale * diamondGrowth
+
+
                 anchor -= xfudgeFactor
-                drawDiamond(size: diamondSize, anchor: anchor)
+                drawDiamond(size: diamondSize * floatD * diamondGrowth,
+                            anchor: anchor)
             }
         }
 

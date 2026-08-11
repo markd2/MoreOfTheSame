@@ -16,6 +16,7 @@
             <connections>
                 <outlet property="angularDivisionSlider" destination="F6R-WG-oFn" id="FVS-CI-w3J"/>
                 <outlet property="centerOpeningSlider" destination="5Md-KV-dcg" id="fqN-uq-pbt"/>
+                <outlet property="diamondGrowthSlider" destination="Wcv-Gd-VPV" id="jC8-2R-jxg"/>
                 <outlet property="diamondSizeSlider" destination="199-I9-WTu" id="YpP-bC-g2h"/>
                 <outlet property="diamondSpaceSlider" destination="MlA-Kb-Ydq" id="VL3-Ib-3ud"/>
                 <outlet property="indraView" destination="XFC-Jp-2Kw" id="xkD-4U-FHp"/>
@@ -772,6 +773,25 @@
                         </sliderCell>
                         <connections>
                             <action selector="handleDiamondSpaceSlider:" target="Voe-Tx-rLC" id="Msk-X2-9gN"/>
+                        </connections>
+                    </slider>
+                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xxw-MS-CIt">
+                        <rect key="frame" x="18" y="116" width="106" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Diamond Growth" id="93B-Dc-RxF">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wcv-Gd-VPV">
+                        <rect key="frame" x="18" y="82" width="166" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="3" doubleValue="1.1000000000000001" tickMarkPosition="above" sliderType="linear" id="E95-A6-Jj9">
+                            <font key="font" metaFont="system" size="12"/>
+                        </sliderCell>
+                        <connections>
+                            <action selector="handleDiamondGrowthSlider:" target="Voe-Tx-rLC" id="5do-OL-59k"/>
                         </connections>
                     </slider>
                 </subviews>

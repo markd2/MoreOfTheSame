@@ -17,6 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var centerOpeningSlider: NSSlider!
     @IBOutlet var diamondSizeSlider: NSSlider!
     @IBOutlet var diamondSpaceSlider: NSSlider!
+    @IBOutlet var diamondGrowthSlider: NSSlider!
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -24,6 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         indraView.centerOpening = Unit(centerOpeningSlider.integerValue)
         indraView.diamondSize = Unit(diamondSizeSlider.doubleValue)
         indraView.diamondSpace = Unit(diamondSpaceSlider.doubleValue)
+        indraView.diamondGrowth = Unit(diamondGrowthSlider.doubleValue)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -50,6 +52,10 @@ extension AppDelegate {
 
     @IBAction func handleDiamondSpaceSlider(_ sender: NSSlider) {
         indraView.diamondSpace = Unit(sender.doubleValue)
+    }
+
+    @IBAction func handleDiamondGrowthSlider(_ sender: NSSlider) {
+        indraView.diamondGrowth = Unit(sender.doubleValue)
     }
 }
 
