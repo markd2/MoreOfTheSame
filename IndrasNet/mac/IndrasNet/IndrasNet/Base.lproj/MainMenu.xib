@@ -14,10 +14,15 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="IndrasNet" customModuleProvider="target">
             <connections>
+                <outlet property="angularDivisionLabel" destination="mhn-kv-sgn" id="6iG-WC-cgW"/>
                 <outlet property="angularDivisionSlider" destination="F6R-WG-oFn" id="FVS-CI-w3J"/>
+                <outlet property="centerOpeningLabel" destination="0dW-lS-Kwe" id="B05-Iq-vt7"/>
                 <outlet property="centerOpeningSlider" destination="5Md-KV-dcg" id="fqN-uq-pbt"/>
+                <outlet property="diamondGrowthLabel" destination="3BQ-JZ-fuF" id="wsr-a8-jmT"/>
                 <outlet property="diamondGrowthSlider" destination="Wcv-Gd-VPV" id="jC8-2R-jxg"/>
+                <outlet property="diamondSizeLabel" destination="aN1-LN-xhb" id="GQJ-Uv-gQR"/>
                 <outlet property="diamondSizeSlider" destination="199-I9-WTu" id="YpP-bC-g2h"/>
+                <outlet property="diamondSpaceLabel" destination="eGF-rn-KlQ" id="MSd-nv-NWz"/>
                 <outlet property="diamondSpaceSlider" destination="MlA-Kb-Ydq" id="VL3-Ib-3ud"/>
                 <outlet property="indraView" destination="XFC-Jp-2Kw" id="xkD-4U-FHp"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
@@ -794,6 +799,51 @@
                             <action selector="handleDiamondGrowthSlider:" target="Voe-Tx-rLC" id="5do-OL-59k"/>
                         </connections>
                     </slider>
+                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mhn-kv-sgn">
+                        <rect key="frame" x="145" y="324" width="39" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="88" id="U45-LR-Svb">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dW-lS-Kwe">
+                        <rect key="frame" x="143" y="271" width="39" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="88" id="Hva-Pt-cow">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aN1-LN-xhb">
+                        <rect key="frame" x="145" y="220" width="39" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="88" id="nPM-HV-IoD">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eGF-rn-KlQ">
+                        <rect key="frame" x="145" y="168" width="39" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="88" id="C6a-dm-xoG">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3BQ-JZ-fuF">
+                        <rect key="frame" x="145" y="116" width="39" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="88" id="nes-sn-Lih">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <connections>
